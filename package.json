@@ -3,10 +3,17 @@
   "version": "0.0.1",
   "description": "mini crm fullstack app on mean",
   "main": "index.js",
+  "engines": {
+    "node": "10.16.3",
+    "npm": "6.7.0"
+  },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run start --prefix client\"",
+    "start": "node index",
+    "dev": "concurrently \"npm run server\" \"npm run start --prefix client\"",
+    "client-install": "npm install --prefix client",
     "server": "nodemon index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run client-install && npm run build --prefix client"
   },
   "author": "Grigorii Balabanov",
   "license": "ISC",
